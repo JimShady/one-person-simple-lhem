@@ -3,6 +3,11 @@ rm(list=ls())
 library(tidyverse)
 library(sf)
 library(lubridate)
+library(googleway)
+library(ggmap)
+library(gepaf)
+library(data.table)
+
 
 people <- list.files('people/')
 print(length(people))
@@ -49,7 +54,8 @@ for (i in 1:length(people)) {
         
         rm(format_ltds_datetimes)
         
-        }
+      }
+  rm(j)
   # End of prep
   
   ## Create a blank day for this person from 04:00 to 03:59
@@ -77,6 +83,24 @@ for (i in 1:length(people)) {
   
   ## Now a loop here which will route each of the stages
   
+  for (k in 1:length(stages)) {
+    
+      source('functions/choose_routing_api.R')
+  
+      start_lat  <- st_coordinates(st_transform(stages[[k]], 4326))[2]
+      start_lon  <- st_coordinates(st_transform(stages[[k]], 4326))[1]
+      end_lat    <- st_coordinates(st_transform(st_set_crs(st_set_geometry(stages[[k]], 'end'),27700),4326))[2]
+      end_lon    <- st_coordinates(st_transform(st_set_crs(st_set_geometry(stages[[k]], 'end'),27700),4326))[1]
+      stage_mode <- stages[[k]]$stage_mode
+      ssid       <- stages[[k]]$stage_id
+  
+      choose_routing_api(stage_mode, start_lat, start_lon, end_lat, end_lon)
+      
+      write(route, paste0('routing_results/', ssid, '.Rdata'))
+      
+      m(start_lat, start_lon, end_lat, end_lon, stage_mode, ssid)
+    
+  }
   
   
 }
