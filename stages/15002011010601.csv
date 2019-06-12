@@ -1,2 +1,2 @@
 person_id,stage_id,stage_mode,stage_start_easting,stage_start_northing,stage_end_easting,stage_end_northing,stage_duration,stage_start_time,stage_end_time
-1500201101,15002011010601,walk,544057,185225,544636,184663,10,1650,1700
+1500201101,15002011010601,car,544057,185225,544636,184663,10,1650,1700
