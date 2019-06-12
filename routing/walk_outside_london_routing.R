@@ -25,3 +25,5 @@ if (json_data$status == 'OK') {
   error_ids[j,] <- i
   j <- j+1
 }
+
+rm(google_api_key)

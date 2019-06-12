@@ -1,5 +1,3 @@
-print(getwd())
-
 source('../google_api_key.R')
 source('functions/decodeline.R')
 
@@ -22,3 +20,5 @@ if (json_data$status == 'OK') {
 } else {
   print('failed')
 }
+
+rm(google_api_key)

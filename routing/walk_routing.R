@@ -52,3 +52,4 @@ if (json_data$`$type` == 'Tfl.Api.Presentation.Entities.JourneyPlanner.Itinerary
 }
 
 Sys.sleep(0.3)
+rm(tfl_app_id, tfl_app_key)

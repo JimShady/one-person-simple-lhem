@@ -28,3 +28,5 @@ if (is.null(json_data$marker) == FALSE) {
 } else { print(paste("At", Sys.time(), "routing unique journey id", i, "was NOT completed using cyclestreets mode, the error id will be logged"))
   error_ids[j,] <- i
   j <- j+1 }
+
+rm(cycle_streets_api_key)

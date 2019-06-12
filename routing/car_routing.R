@@ -51,3 +51,4 @@ if (json_data$trip$status_message == "Found route between points") {
 }
 
 Sys.sleep(0.5)
+rm(mapzen_api)
