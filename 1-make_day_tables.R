@@ -2,6 +2,12 @@
 ## it sources scripts to do the routing
 ## It outputs data to the /routing_results folder, and the /day_tables folders.
 
+## Issues / To do
+## 1) The data that is put back into the day table does not bring through which London Underground line was used,
+## or bus number etc. So the 'line' column is never updated. Need to think about a better way to do this.
+## 2) At the moment only the 'car' routing works. The others need fixing.
+## 3) The function which chooses which routing api needs to be cleverer in terms of whether in London or not.
+
 rm(list=ls())
 
 library(tidyverse)
@@ -144,38 +150,3 @@ for (i in 1:length(people)) {
   rm(day_table, household, person, route, stages, date, i, k, people, ppid, stage_files, choose_routing_api, decodeLine)
   
 }
-
-
-
-
-## Route each of the routes that need doing, getting the linestring and any info about which tube, or bus etc if applicable
-
-
-
-## Store these in a folder as ssid.Rdata (Aswell as insert to the blank day above)
-
-
-
-## Identify which CMAQ files going to want to access
-
-
-
-## Import CMAQ files and sort out as a geo-referenced raster
-
-
-
-## Extract concentrations from the raster by location, hour(?), month(?) etc. store as new 'raw_exposure' column in table
-
-
-
-## Depending on the transport mode used (for now) apply microenvironment I/O factors 
-
-
-
-## When between transport, apply I/O factor for indoors
-
-
-
-## Write the final dataframe to file, as <ppid>.Rdata
-
-
