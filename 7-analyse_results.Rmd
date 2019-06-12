@@ -1,0 +1,1 @@
+# I'd make this a rmarkdown file which 'compiles' by looking at the finished day tables and making graphs/summary stats.
