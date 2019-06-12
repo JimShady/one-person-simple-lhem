@@ -1,3 +1,7 @@
+## This script runs through the data in the /stages , /person and /household tables
+## it sources scripts to do the routing
+## It outputs data to the /routing_results folder, and the /day_tables folders.
+
 rm(list=ls())
 
 library(tidyverse)
